@@ -8,9 +8,16 @@ const Home = () => {
     { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2},
     { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'luigi', id: 3}
   ]);
+
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter(blog => blog.id != id);
+    setBlogs(newBlogs);
+  }
+
   return (
     <div className="home">
-      <BlogList blogs={blogs} title="Wow!"/>
+      <BlogList blogs={blogs} title="Wow!" handleDelete={handleDelete}/>
+      
     </div>
   );
 }
